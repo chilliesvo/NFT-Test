@@ -22,7 +22,6 @@ contract NAPA1155 is ERC1155, ERC2981 {
         symbol = _symbol;
         if (_receiverRoyaltyFee != address(0)) {
             require(_percentageRoyaltyFee > 0, "Requires royalty fee more significant than 0");
-            defaultRoyaltyInfo = RoyaltyInfo(_receiverRoyaltyFee, _percentageRoyaltyFee);
             _setDefaultRoyalty(_receiverRoyaltyFee, _percentageRoyaltyFee);
         }
     }
@@ -54,7 +53,6 @@ contract NAPA1155 is ERC1155, ERC2981 {
             tokenIds[i] = id++;
             _mint(_msgSender(), id, _amounts[i], "");
         }
-        baseURI = _baseUri;
         lastedId = id;
         emit MintBatch(tokenIds, _amounts);
     }

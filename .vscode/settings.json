@@ -2,13 +2,18 @@
     "runOnSave.statusMessageTimeout": 3000,
     "runOnSave.commands": [
       {
-        "match": ".*\\NFTChecker.test.js",
-        "command": "npx hardhat test test/NFTChecker.test.js",
+        "match": ".*\\*.sol",
+        "command": "npx hardhat compile",
         "runIn": "terminal"
       },
       {
-        "match": ".*\\Royalty.test.js",
-        "command": "npx hardhat test test/Royalty.test.js",
+        "match": ".*\\NAPA721.test.js",
+        "command": "npx hardhat test test/NAPA721.test.js",
+        "runIn": "terminal"
+      },
+      {
+        "match": ".*\\NAPA1155.test.js",
+        "command": "npx hardhat test test/NAPA1155.test.js",
         "runIn": "terminal"
       }
     ],

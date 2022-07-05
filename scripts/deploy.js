@@ -12,29 +12,33 @@ async function main() {
   const NAPA1155    = await ethers.getContractFactory("NAPA1155");
 
   // Deploy contracts
-  console.log("==================================================================");
+  console.log("===================================================================================");
   console.log("DEPLOYING CONTRACTS");
-  console.log("==================================================================");
+  console.log("===================================================================================");
 
   // const nftChecker = await upgrades.deployProxy(NFTChecker);
   // await nftChecker.deployed();
   // console.log("NFTChecker                         deployed to:>>", nftChecker.address);
   // const nftCheckerVerify = await upgrades.erc1967.getImplementationAddress(nftChecker.address);
   // console.log("NFTChecker                         verify:>>", nftCheckerVerify);
+  const barUri = "https://gateway.pinata.cloud/ipfs/QmfZpfLKeyYLtjuMPyecmsyVzTZSmHby4utjmeqcBoL4ty/";
 
   const napa721Args = ["NAPA Royalty Single Token", "NAPA", deployer, 1000];
   const napa721     = await NAPA721.deploy(...napa721Args);
   await napa721.deployed();
-  console.log("NAPA721                             deployed to:>>", napa721.address);
+  console.log("NAPA721                   deployed to:>>", napa721.address);
 
   const napa1155Args = ["NAPA Royalty Multi Token", "NAPA", deployer, 1000];
   const napa1155     = await NAPA1155.deploy(...napa1155Args);
   await napa1155.deployed();
-  console.log("NAPA1155                            deployed to:>>", napa1155.address);
+  console.log("NAPA1155                  deployed to:>>", napa1155.address);
 
-  console.log("==================================================================");
+  await napa721.setBaseURI(barUri);
+  await napa1155.setBaseURI(barUri);
+
+  console.log("===================================================================================");
   console.log("DONE");
-  console.log("==================================================================");
+  console.log("===================================================================================");
 
   const verifyArguments = {
     deployer    : deployer,
