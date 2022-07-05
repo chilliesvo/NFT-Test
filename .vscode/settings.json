@@ -1,0 +1,17 @@
+{
+    "runOnSave.statusMessageTimeout": 3000,
+    "runOnSave.commands": [
+      {
+        "match": ".*\\NFTChecker.test.js",
+        "command": "npx hardhat test test/NFTChecker.test.js",
+        "runIn": "terminal"
+      },
+      {
+        "match": ".*\\Royalty.test.js",
+        "command": "npx hardhat test test/Royalty.test.js",
+        "runIn": "terminal"
+      }
+    ],
+    "git.ignoreLimitWarning": true,
+    "solidity.defaultCompiler": "localNodeModule"
+  }
