@@ -39,7 +39,7 @@ const config = {
       accounts: [process.env.DEPLOY_ACCOUNT],
     },
     rinkeby: {
-      url: `${process.env.RINKEBY_URL}${process.env.INFURA_KEY}`,
+      url: process.env.RINKEBY_URL,
       accounts: [process.env.DEPLOY_ACCOUNT],
     },
     mumbai: {
@@ -48,7 +48,7 @@ const config = {
     },
   },
   etherscan: {
-    apiKey: process.env.BINANCE_API_KEY,
+    apiKey: process.env.ETHERSCAN_API_KEY,
   },
   solidity: {
     compilers: [

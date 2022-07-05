@@ -4,8 +4,8 @@ const contracts = require("../contracts.json");
 async function main() {
   try {
     await hre.run("verify:verify", {
-      address: contracts.osb721,
-      constructorArguments: contracts.osb721Args,
+      address: contracts.napa721,
+      constructorArguments: contracts.napa721Args,
     });
   } catch (err) {
     console.log("err :>> ", err);
@@ -13,8 +13,8 @@ async function main() {
 
   try {
     await hre.run("verify:verify", {
-      address: contracts.osb1155,
-      constructorArguments: contracts.osb1155Args,
+      address: contracts.napa1155,
+      constructorArguments: contracts.napa1155Args,
     });
   } catch (err) {
     console.log("err :>> ", err);
